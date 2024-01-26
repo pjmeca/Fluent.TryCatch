@@ -21,6 +21,20 @@ public class Catchabble : Ignorabble
     }
 
     /// <summary>
+    /// Adds a new empty <c>catch</c> block to the current <c>try...catch</c> statement.
+    /// <br/><strong>Note:</strong> in a secuence containing multiple <c>catch</c> blocks only the first block
+    /// that can handle the exception, if any, will be executed.
+    /// </summary>
+    /// <typeparam name="TException">The <see cref="Exception"/> type you want to catch.</typeparam>
+    /// <returns>A <see cref="Catchabble"/> object.</returns>
+    public Catchabble Catch<TException>() where TException : Exception
+    {
+        _catchBlocks.Add((typeof(TException), e => { }));
+
+        return this;
+    }
+
+    /// <summary>
     /// Adds a new <c>catch</c> block to the current <c>try...catch</c> statement that catches the default <see cref="Exception"/> type.
     /// <br/><strong>Note:</strong> in a secuence containing multiple <c>catch</c> blocks only the first block
     /// that can handle the exception, if any, will be executed.
@@ -30,6 +44,20 @@ public class Catchabble : Ignorabble
     public Catchabble Catch(Action<Exception> catchBlock)
     {
         _catchBlocks.Add((typeof(Exception), catchBlock));
+
+        return this;
+    }
+
+    /// <summary>
+    /// Adds a new empty <c>catch</c> block to the current <c>try...catch</c> statement that catches the default <see cref="Exception"/> type.
+    /// <br/><strong>Note:</strong> in a secuence containing multiple <c>catch</c> blocks only the first block
+    /// that can handle the exception, if any, will be executed.
+    /// </summary>
+    /// <param name="catchBlock">The code that should be executed if <see cref="Exception"/> is raised.</param>
+    /// <returns>A <see cref="Catchabble"/> object.</returns>
+    public Catchabble Catch()
+    {
+        _catchBlocks.Add((typeof(Exception), e => { }));
 
         return this;
     }
