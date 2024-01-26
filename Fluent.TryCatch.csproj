@@ -1,9 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>$(AssemblyName)</Title>
+    <Authors>pjmeca</Authors>
+    <Description>A fluent try...catch statements wrapper for .Net.</Description>
+    <RepositoryUrl>https://github.com/pjmeca/Fluent.TryCatch</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

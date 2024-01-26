@@ -8,7 +8,7 @@ public class Executabble
     protected Action? _action { get; set; }
     protected Func<object>? _func { get; set; }
 
-    protected List<(Type Type, Action<Exception> Action)> _catchBlocks { get; set; } = [];
+    protected List<(Type Type, Action<Exception> Action)> _catchBlocks { get; set; } = new ();
 
     protected bool _ignore { get; set; }
 
