@@ -8,7 +8,8 @@ public class Executabble
     protected Action? _action { get; set; }
     protected Func<object>? _func { get; set; }
 
-    protected List<(Type Type, Action<Exception> Action)> _catchBlocks { get; set; } = new ();
+    protected List<(Type Type, Action<Exception> Action)> _catchActions { get; set; } = new();
+    protected List<(Type Type, Func<Exception, object> Action)> _catchFuncs { get; set; } = new();
 
     protected bool _ignore { get; set; }
 
@@ -31,14 +32,22 @@ public class Executabble
         }
         catch (Exception ex)
         {
-            var catchBlock = _catchBlocks
+            var catchAction = _catchActions
+                .Where(x => x.Type.IsAssignableFrom(ex.GetType()))
+                .Select(x => x.Action)
+                .FirstOrDefault();
+            var catchFunc = _catchFuncs
                 .Where(x => x.Type.IsAssignableFrom(ex.GetType()))
                 .Select(x => x.Action)
                 .FirstOrDefault();
 
-            if (catchBlock != null)
+            if (catchFunc != null)
             {
-                catchBlock.Invoke(ex);
+                return (T)catchFunc.Invoke(ex);
+            }
+            else if (catchAction != null)
+            {
+                catchAction.Invoke(ex);
             }
             else
             {

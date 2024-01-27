@@ -15,7 +15,15 @@ public class Catchabble : Ignorabble
     /// <returns>A <see cref="Catchabble"/> object.</returns>
     public Catchabble Catch<TException>(Action<Exception> catchBlock) where TException : Exception
     {
-        _catchBlocks.Add((typeof(TException), catchBlock));
+        _catchActions.Add((typeof(TException), catchBlock));
+
+        return this;
+    }
+
+    /// <inheritdoc cref="Catch{TException}(Action{Exception})"/>
+    public Catchabble Catch<TException>(Func<Exception, object> catchBlock) where TException : Exception
+    {
+        _catchFuncs.Add((typeof(TException), catchBlock));
 
         return this;
     }
@@ -29,7 +37,7 @@ public class Catchabble : Ignorabble
     /// <returns>A <see cref="Catchabble"/> object.</returns>
     public Catchabble Catch<TException>() where TException : Exception
     {
-        _catchBlocks.Add((typeof(TException), e => { }));
+        _catchActions.Add((typeof(TException), e => { }));
 
         return this;
     }
@@ -43,7 +51,15 @@ public class Catchabble : Ignorabble
     /// <returns>A <see cref="Catchabble"/> object.</returns>
     public Catchabble Catch(Action<Exception> catchBlock)
     {
-        _catchBlocks.Add((typeof(Exception), catchBlock));
+        _catchActions.Add((typeof(Exception), catchBlock));
+
+        return this;
+    }
+
+    /// <inheritdoc cref="Catch(Action{Exception})"/>
+    public Catchabble Catch(Func<Exception, object> catchBlock)
+    {
+        _catchFuncs.Add((typeof(Exception), catchBlock));
 
         return this;
     }
@@ -57,7 +73,7 @@ public class Catchabble : Ignorabble
     /// <returns>A <see cref="Catchabble"/> object.</returns>
     public Catchabble Catch()
     {
-        _catchBlocks.Add((typeof(Exception), e => { }));
+        _catchActions.Add((typeof(Exception), e => { }));
 
         return this;
     }
