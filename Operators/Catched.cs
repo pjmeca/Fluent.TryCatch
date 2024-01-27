@@ -4,6 +4,7 @@ using Fluent.TryCatch.Models;
 
 namespace Fluent.TryCatch.Operators;
 
+/// <inheritdoc cref="ICatched"/>
 public class Catched : Catchabble, ICatched
 {
     public Catched(ICatchabble catchabble)
