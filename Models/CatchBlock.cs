@@ -27,6 +27,12 @@ public class CatchBlock
         Func = func;
     }
 
+    public bool Match(Exception exception)
+    {
+        return Type.IsAssignableFrom(exception.GetType()) &&
+            (When == null || When.Invoke(exception));
+    }
+
     public T Invoke<T>(Exception ex)
     {
         if (IsFunc)

@@ -30,7 +30,7 @@ public class Executabble : IExecutabble
         catch (Exception ex)
         {
             var catchBlock = _catchBlocks
-                .Find(x => x.Type.IsAssignableFrom(ex.GetType()));
+                .Find(x => x.Match(ex));
 
             if (catchBlock != null)
             {
