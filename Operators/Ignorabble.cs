@@ -1,15 +1,11 @@
-﻿namespace Fluent.TryCatch.Operators;
+﻿using Fluent.TryCatch.IOperators;
 
-/// <summary>
-/// Represents a generic <c>catch</c> block. It's the third step of <see cref="Fluent"/> <c>try...catch</c> statements.
-/// </summary>
-public class Ignorabble : Finallyabble
+namespace Fluent.TryCatch.Operators;
+
+/// <inheritdoc cref="IIgnorabble"/>
+public class Ignorabble : Finallyabble, IIgnorabble
 {
-    /// <summary>
-    /// Ignores any exception thrown that is not already handled.
-    /// </summary>
-    /// <returns>A <see cref="Finallyabble"/> object.</returns>
-    public Finallyabble Ignore()
+    public IFinallyabble Ignore()
     {
         _ignore = true;
 

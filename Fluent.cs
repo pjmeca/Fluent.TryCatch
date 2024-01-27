@@ -1,4 +1,5 @@
-﻿using Fluent.TryCatch.Operators;
+﻿using Fluent.TryCatch.IOperators;
+using Fluent.TryCatch.Operators;
 
 namespace Fluent.TryCatch;
 
@@ -8,13 +9,13 @@ namespace Fluent.TryCatch;
 public static class Fluent
 {
     /// <inheritdoc cref="Tryabble.Tryabble(Action?)"/>
-    public static Tryabble Try(Action? action)
+    public static ITryabble Try(Action? action)
     {
         return new Tryabble(action);
     }
 
     /// <inheritdoc cref="Tryabble.Tryabble(Func{object}?)"/>
-    public static Tryabble Try(Func<object>? func)
+    public static ITryabble Try(Func<object>? func)
     {
         return new Tryabble(func);
     }

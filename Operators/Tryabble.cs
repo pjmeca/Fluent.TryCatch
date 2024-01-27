@@ -1,9 +1,9 @@
-﻿namespace Fluent.TryCatch.Operators;
+﻿using Fluent.TryCatch.IOperators;
 
-/// <summary>
-/// Represents a <c>try</c> block. It's the starting point for creating <see cref="Fluent"/> <c>try...catch</c> statements.
-/// </summary>
-public class Tryabble : Catchabble
+namespace Fluent.TryCatch.Operators;
+
+/// <inheritdoc cref="ITryabble"/>
+public class Tryabble : Catchabble, ITryabble
 {
     /// <summary>
     /// Starts a fluent <c>try...catch</c> statement that expects to return nothing after it's execution.
