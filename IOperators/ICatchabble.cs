@@ -1,6 +1,6 @@
-﻿using Fluent.TryCatch.Operators;
+﻿using Fluents.TryCatch.Operators;
 
-namespace Fluent.TryCatch.IOperators;
+namespace Fluents.TryCatch.IOperators;
 
 /// <summary>
 /// Represents a <c>catch</c> block. It's the second step of <see cref="Fluent"/> <c>try...catch</c> statements.

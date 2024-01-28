@@ -1,4 +1,4 @@
-﻿namespace Fluent.TryCatch.IOperators;
+﻿namespace Fluents.TryCatch.IOperators;
 
 /// <summary>
 /// Performs the <c>try...catch</c> statement. It's the final step of <see cref="Fluent"/> <c>try...catch</c> statements.

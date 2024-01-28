@@ -1,8 +1,8 @@
 ﻿
-using Fluent.TryCatch.IOperators;
-using Fluent.TryCatch.Models;
+using Fluents.TryCatch.IOperators;
+using Fluents.TryCatch.Models;
 
-namespace Fluent.TryCatch.Operators;
+namespace Fluents.TryCatch.Operators;
 
 /// <inheritdoc cref="IExecutabble"/>
 public class Executabble : IExecutabble

@@ -1,4 +1,4 @@
-﻿namespace Fluent.TryCatch.IOperators;
+﻿namespace Fluents.TryCatch.IOperators;
 
 /// <summary>
 /// Represents an intermediate step between a <c>catch</c> instruction and its successors.

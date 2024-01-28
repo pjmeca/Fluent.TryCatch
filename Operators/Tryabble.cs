@@ -1,6 +1,6 @@
-﻿using Fluent.TryCatch.IOperators;
+﻿using Fluents.TryCatch.IOperators;
 
-namespace Fluent.TryCatch.Operators;
+namespace Fluents.TryCatch.Operators;
 
 /// <inheritdoc cref="ITryabble"/>
 public class Tryabble : Catchabble, ITryabble

@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<VersionPrefix>1.0.1</VersionPrefix>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>$(AssemblyName)</Title>
     <Authors>pjmeca</Authors>
-    <Description>
-		  Fluent.TryCatch is a lightweight library that adds support for fluent try...catch statements to .Net.
-	    It incorporates all the funtionality of the standard try...catch statement, but with a fluent syntax.
+    <Description>Fluent.TryCatch is a lightweight library that adds support for fluent try...catch statements to .Net.
+It incorporates all the funtionality of the standard try...catch statement, but with a fluent syntax.
 	  </Description>
     <RepositoryUrl>https://github.com/pjmeca/Fluent.TryCatch</RepositoryUrl>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

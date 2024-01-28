@@ -1,6 +1,6 @@
-﻿using Fluent.TryCatch.Operators;
+﻿using Fluents.TryCatch.Operators;
 
-namespace Fluent.TryCatch.IOperators;
+namespace Fluents.TryCatch.IOperators;
 
 /// <summary>
 /// Represents a generic <c>finally</c> block. It's the fourth step of <see cref="Fluent"/> <c>try...catch</c> statements.

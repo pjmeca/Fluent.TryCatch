@@ -1,7 +1,7 @@
-﻿using Fluent.TryCatch.IOperators;
-using Fluent.TryCatch.Operators;
+﻿using Fluents.TryCatch.IOperators;
+using Fluents.TryCatch.Operators;
 
-namespace Fluent.TryCatch;
+namespace Fluents;
 
 /// <summary>
 /// Helper class for creating <c>try...catch</c> statements.

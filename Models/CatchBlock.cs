@@ -1,4 +1,4 @@
-﻿namespace Fluent.TryCatch.Models;
+﻿namespace Fluents.TryCatch.Models;
 
 /// <summary>
 /// Represents a <c>catch</c> block.
