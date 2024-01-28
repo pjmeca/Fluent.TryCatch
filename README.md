@@ -4,18 +4,16 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Fluent.TryCatch?logo=nuget&label=Get%20it%20on%20NuGet)](https://www.nuget.org/packages/Fluent.TryCatch)
 [![GitHub License](https://img.shields.io/github/license/pjmeca/Fluent.TryCatch?label=License)](https://opensource.org/licenses/MIT)
 
-
-
 ## Table of Contents
 
 - [About](#about)
 - [Why?](#why)
 - [Features](#features)
 - [Examples](#examples)
-  - [Simple try...catch statement](#example1)
-  - [Multiple try...catch statements with a when clause](#example2)
-  - [The ignore operator with a finally block](#example3)
-  - [Returning values](#example4)
+  - [Simple try...catch statement](#a-simple-trycatch-statement)
+  - [Multiple try...catch statements with a when clause](#multiple-trycatch-statements-with-a-when-clause)
+  - [The ignore operator with a finally block](#the-ignore-operator-with-a-finally-block)
+  - [Returning values](#returning-values)
 
 ## About
 
@@ -36,7 +34,7 @@ Simplicity. Sometimes the standard `try...catch` statement can be verbose and di
 
 ## Examples
 
-### A simple `try...catch` statement <a id="example1"></a>
+### A simple `try...catch` statement
 
 ```csharp
 Fluent.Try(() =>
@@ -59,7 +57,7 @@ catch (Exception e)
 }
 ```
 
-### Multiple `try...catch` statements with a `when` clause <a id="example2"></a>
+### Multiple `try...catch` statements with a `when` clause
 
 ```csharp
 Fluent.Try(() => 
@@ -96,7 +94,7 @@ catch (Exception e)
 }
 ```
 
-### The `ignore` operator with a `finally` block <a id="example3"></a>
+### The `ignore` operator with a `finally` block
 
 ```csharp
 Fluent.Try(() => 
@@ -125,7 +123,7 @@ finally
 }
 ```
 
-### Returning values <a id="example4"></a>
+### Returning values
 
 ```csharp
 int result = Fluent.Try(() => 
