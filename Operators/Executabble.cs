@@ -1,4 +1,6 @@
-﻿using Fluent.TryCatch.IOperators;
+﻿
+using Fluent.TryCatch.IOperators;
+using Fluent.TryCatch.Models;
 
 namespace Fluent.TryCatch.Operators;
 
@@ -8,8 +10,7 @@ public class Executabble : IExecutabble
     protected Action? _action { get; set; }
     protected Func<object>? _func { get; set; }
 
-    protected List<(Type Type, Action<Exception> Action)> _catchActions { get; set; } = new();
-    protected List<(Type Type, Func<Exception, object> Action)> _catchFuncs { get; set; } = new();
+    protected List<CatchBlock> _catchBlocks { get; set; } = new();
 
     protected bool _ignore { get; set; }
 
@@ -28,22 +29,12 @@ public class Executabble : IExecutabble
         }
         catch (Exception ex)
         {
-            var catchAction = _catchActions
-                .Where(x => x.Type.IsAssignableFrom(ex.GetType()))
-                .Select(x => x.Action)
-                .FirstOrDefault();
-            var catchFunc = _catchFuncs
-                .Where(x => x.Type.IsAssignableFrom(ex.GetType()))
-                .Select(x => x.Action)
-                .FirstOrDefault();
+            var catchBlock = _catchBlocks
+                .Find(x => x.Match(ex));
 
-            if (catchFunc != null)
+            if (catchBlock != null)
             {
-                return (T)catchFunc.Invoke(ex);
-            }
-            else if (catchAction != null)
-            {
-                catchAction.Invoke(ex);
+                return catchBlock.Invoke<T>(ex);
             }
             else
             {

@@ -1,49 +1,44 @@
 ﻿using Fluent.TryCatch.IOperators;
+using Fluent.TryCatch.Models;
 
 namespace Fluent.TryCatch.Operators;
 
 /// <inheritdoc cref="ICatchabble"/>
 public class Catchabble : Ignorabble, ICatchabble
 {
-    public ICatchabble Catch<TException>(Action<Exception> catchBlock) where TException : Exception
+    private ICatched BaseCatch(CatchBlock catchBlock)
     {
-        _catchActions.Add((typeof(TException), catchBlock));
-
-        return this;
+        _catchBlocks.Add(catchBlock);
+        return new Catched(this);
     }
 
-    public ICatchabble Catch<TException>(Func<Exception, object> catchBlock) where TException : Exception
+    public ICatched Catch<TException>(Action<Exception> catchBlock) where TException : Exception
     {
-        _catchFuncs.Add((typeof(TException), catchBlock));
-
-        return this;
+        return BaseCatch(new(typeof(TException), catchBlock));
     }
 
-    public ICatchabble Catch<TException>() where TException : Exception
+    public ICatched Catch<TException>(Func<Exception, object> catchBlock) where TException : Exception
     {
-        _catchActions.Add((typeof(TException), e => { }));
-
-        return this;
+        return BaseCatch(new(typeof(TException), catchBlock));
     }
 
-    public ICatchabble Catch(Action<Exception> catchBlock)
+    public ICatched Catch<TException>() where TException : Exception
     {
-        _catchActions.Add((typeof(Exception), catchBlock));
-
-        return this;
+        return BaseCatch(new(typeof(TException)));
     }
 
-    public ICatchabble Catch(Func<Exception, object> catchBlock)
+    public ICatched Catch(Action<Exception> catchBlock)
     {
-        _catchFuncs.Add((typeof(Exception), catchBlock));
-
-        return this;
+        return BaseCatch(new(typeof(Exception), catchBlock));
     }
 
-    public ICatchabble Catch()
+    public ICatched Catch(Func<Exception, object> catchBlock)
     {
-        _catchActions.Add((typeof(Exception), e => { }));
+        return BaseCatch(new(typeof(Exception), catchBlock));
+    }
 
-        return this;
+    public ICatched Catch()
+    {
+        return BaseCatch(new(typeof(Exception)));
     }
 }

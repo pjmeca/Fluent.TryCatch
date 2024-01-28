@@ -15,10 +15,10 @@ public interface ICatchabble : IIgnorabble
     /// <typeparam name="TException">The <see cref="Exception"/> type you want to catch.</typeparam>
     /// <param name="catchBlock">The code that should be executed if <typeparamref name="TException"/> is raised.</param>
     /// <returns>A <see cref="Catchabble"/> object.</returns>
-    public ICatchabble Catch<TException>(Action<Exception> catchBlock) where TException : Exception;
+    public ICatched Catch<TException>(Action<Exception> catchBlock) where TException : Exception;
 
     /// <inheritdoc cref="Catch{TException}(Action{Exception})"/>
-    public ICatchabble Catch<TException>(Func<Exception, object> catchBlock) where TException : Exception;
+    public ICatched Catch<TException>(Func<Exception, object> catchBlock) where TException : Exception;
 
     /// <summary>
     /// Adds a new empty <c>catch</c> block to the current <c>try...catch</c> statement.
@@ -27,7 +27,7 @@ public interface ICatchabble : IIgnorabble
     /// </summary>
     /// <typeparam name="TException">The <see cref="Exception"/> type you want to catch.</typeparam>
     /// <returns>A <see cref="Catchabble"/> object.</returns>
-    public ICatchabble Catch<TException>() where TException : Exception;
+    public ICatched Catch<TException>() where TException : Exception;
 
     /// <summary>
     /// Adds a new <c>catch</c> block to the current <c>try...catch</c> statement that catches the default <see cref="Exception"/> type.
@@ -36,10 +36,10 @@ public interface ICatchabble : IIgnorabble
     /// </summary>
     /// <param name="catchBlock">The code that should be executed if <see cref="Exception"/> is raised.</param>
     /// <returns>A <see cref="Catchabble"/> object.</returns>
-    public ICatchabble Catch(Action<Exception> catchBlock);
+    public ICatched Catch(Action<Exception> catchBlock);
 
     /// <inheritdoc cref="Catch(Action{Exception})"/>
-    public ICatchabble Catch(Func<Exception, object> catchBlock);
+    public ICatched Catch(Func<Exception, object> catchBlock);
 
     /// <summary>
     /// Adds a new empty <c>catch</c> block to the current <c>try...catch</c> statement that catches the default <see cref="Exception"/> type.
@@ -48,5 +48,5 @@ public interface ICatchabble : IIgnorabble
     /// </summary>
     /// <param name="catchBlock">The code that should be executed if <see cref="Exception"/> is raised.</param>
     /// <returns>A <see cref="Catchabble"/> object.</returns>
-    public ICatchabble Catch();
+    public ICatched Catch();
 }
