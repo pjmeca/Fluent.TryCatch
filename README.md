@@ -1,5 +1,11 @@
 # 💧 Fluent.TryCatch
 
+[![GitHub Repo stars](https://img.shields.io/github/stars/pjmeca/Fluent.TryCatch?style=flat&logo=github&label=Star%20this%20repo!)](https://github.com/pjmeca/Fluent.TryCatch)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Fluent.TryCatch?logo=nuget&label=Get%20it%20on%20NuGet)](https://www.nuget.org/packages/Fluent.TryCatch)
+[![GitHub License](https://img.shields.io/github/license/pjmeca/Fluent.TryCatch?label=License)](https://opensource.org/licenses/MIT)
+
+
+
 ## Table of Contents
 
 - [About](#about)
