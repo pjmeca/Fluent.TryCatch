@@ -6,7 +6,7 @@
 public class CatchBlock
 {
     /// <summary>
-    /// The <see cref="Exception"/> type to be catched.
+    /// The <see cref="Exception"/> type to be caught.
     /// </summary>
     public Type Type { get; private set; }
 
