@@ -21,6 +21,7 @@ It incorporates all the funtionality of the standard try...catch statement, but 
   </ItemGroup>
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
 </Project>
