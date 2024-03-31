@@ -46,7 +46,6 @@ public interface ICatchabble : IIgnorabble
     /// <br/><strong>Note:</strong> in a secuence containing multiple <c>catch</c> blocks only the first block
     /// that can handle the exception, if any, will be executed.
     /// </summary>
-    /// <param name="catchBlock">The code that should be executed if <see cref="Exception"/> is raised.</param>
     /// <returns>A <see cref="Catchabble"/> object.</returns>
     public ICatched Catch();
 
