@@ -49,4 +49,13 @@ public interface ICatchabble : IIgnorabble
     /// <param name="catchBlock">The code that should be executed if <see cref="Exception"/> is raised.</param>
     /// <returns>A <see cref="Catchabble"/> object.</returns>
     public ICatched Catch();
+
+    /// <summary>
+    /// Rethrows any non-caught exceptions as a new exception of <typeparamref name="TException"/> type.
+    /// The original exception will be stored in the InnerException property.
+    /// </summary>
+    /// <typeparam name="TException">The new type of exception to be thrown.</typeparam>
+    /// <param name="message">Optionally, a message can be specified. Otherwise it will be inherited from the original exception.</param>
+    /// <returns>A <see cref="Catchabble"/> object.</returns>
+    public IFinallyabble ThrowAs<TException>(string? message = null) where TException : Exception;
 }

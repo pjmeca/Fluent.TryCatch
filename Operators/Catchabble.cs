@@ -41,4 +41,11 @@ public class Catchabble : Ignorabble, ICatchabble
     {
         return BaseCatch(new(typeof(Exception)));
     }
+
+    public IFinallyabble ThrowAs<TException>(string? message = null) where TException : Exception
+    {
+        _throwAs = new(typeof(TException), message);
+
+        return this;
+    }
 }

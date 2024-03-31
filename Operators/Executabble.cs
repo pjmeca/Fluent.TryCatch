@@ -1,4 +1,5 @@
 ﻿
+using Fluent.TryCatch.Models;
 using Fluents.TryCatch.IOperators;
 using Fluents.TryCatch.Models;
 
@@ -9,6 +10,8 @@ public class Executabble : IExecutabble
 {
     protected Action? _action { get; set; }
     protected Func<object>? _func { get; set; }
+
+    protected RethrownException? _throwAs { get; set; }
 
     protected List<CatchBlock> _catchBlocks { get; set; } = new();
 
@@ -38,6 +41,8 @@ public class Executabble : IExecutabble
             }
             else
             {
+                _throwAs?.Throw(ex);
+
                 if (!_ignore)
                     throw;
             }
