@@ -1,0 +1,9 @@
+v.1.1.0
+- Added ThrowAs operator
+- Display documentation in release
+
+v.1.0.1
+- Change namespace to Fluents to avoid name conflicts
+
+v.1.0.0
+- Initial release.
