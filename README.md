@@ -28,6 +28,7 @@ Simplicity. Sometimes the standard `try...catch` statement can be verbose and di
 - One `try` clause
 - Zero to multiple `catch` blocks
 - Optionally, a `when` clause for each `catch` block
+- A special `ThrowAs` operator to change the type of exception thrown.
 - A special `ignore` operator that discards non controlled exceptions
 - Zero to one `finally` block
 - Returning values
